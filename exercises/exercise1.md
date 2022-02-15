@@ -44,7 +44,7 @@ Create a C++ project (Hello World Executable Project) in Cevelop, compile and ru
 
 ### Hello World with separate Compilation Unit
 
-  - Create a single C++ project with [Header](../src/sayhello.h), [Implementation](../src/sayhello.cpp) and [Main Program](../src/mainsayhello.cpp)
+  - Create a single C++ project with [Header](../src/hellolib/sayhello.h), [Implementation](../src/hellolib/sayhello.cpp) and [Main Program](../src/hellomain/mainsayhello.cpp)
   - Compiling the code:
     - Build your project (Hammer icon in Cevelop).
     - Do you get any errors?
