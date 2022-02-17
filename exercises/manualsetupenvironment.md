@@ -13,6 +13,8 @@ This provides a minimal setup with the Cevelop IDE and a Browser with preconfigu
 
 ## Installation on MacOS
 
+Note: as of today, the release Cevelop does not yet run on the newer M1(aarch64) Macs.
+
   -  Download Cevelop at https://www.cevelop.com/download/ (or use brew)
   -  Unzip it anywhere locally on your filesystem, e.g. in your home directory.
   -  You might need to install XCode command line tools to obtain a C++ compiler or use homebrew to install gcc-11 to be able to compile C++ programs. Since homebrew will install g++-11 in /opt/homebrew/bin you might need to add that directory to your PATH environment variable. XCode command line tools are available via the default path /usr/bin.
@@ -64,7 +66,5 @@ Login to the VM using:
 *Password:* cpppassword
 
 From the desktop menu, select Application->Programming->cevelop
-
----
 
 
