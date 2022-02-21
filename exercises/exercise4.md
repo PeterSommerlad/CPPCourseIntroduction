@@ -43,16 +43,31 @@ After checking its functionality using some unit tests, use that function in a p
 
 <hr/>
 
+
+# 4 - e) Word List with `std::string`{.cpp}
+
+Write a program **wlist** that reads all words (as defined by std::string's input operator >>) from the standard input and produce a sorted list of all occurring words, where each word only is printed once. What data structure and algorithms are you using? Do not write your own loops nor use `std::for_each`.
+
+* e1) Can you ignore the case of letters, so that `Hello == hello` ?
+* e2) Can you ignore non-letter characters from input?
+
+
+**Hints:**
+*  Have a look at functions defined in `<cctype>` (character-type) and the available algorithms in `<algorithm>` (`std::lexicographical_compare`).
+*  To implement the functionality with an `std::vector` you might need further algorithms: `sort` and `unique`
+ 
+
+
 # 4. Extra exercises for self-study (Optional)
 
 These relate to exercise2-extra.
 
 
-## e)  Sum numbers
+## f)  Sum numbers
 
 Write a function **sumi(std::istream&)** to sum up a sequence of integer numbers given on an input stream. Assume only numbers separated by whitespace are given. Return the resulting sum. Do not use a loop. How much would need to change to sum floating point numbers instead? Do so but in a separate function called **sumd(std::istream&)**
 
-## f)  Multiplication table
+## g)  Multiplication table
 
 Write a program **multab** to print a multiplication table for the integers from 1 to 20. Start by filling a `std::vector<int>` with the numbers 1 to 20. You shouldn't use a loop to create the table, therefore you might need to nest algorithm calls in a lambda expression or function call to get the nested iteration. The output can be generated onto an `std::ostream_iterator` with an algorithm that 'transforms' its input.
 
@@ -61,7 +76,7 @@ Note: **use a lambda with capture by reference:**
 [&](auto x){...}
 ```
 
-## g) Decimal Fractions
+## h) Decimal Fractions
 
 Can you vary your program _multab_ to print a table of decimal fractions (**fractab**) for a divided by b, where a and b take the range from 1 to 10? Also without any self-made loops.
 
