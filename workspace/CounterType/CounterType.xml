@@ -1,0 +1,24 @@
+<testsuites>
+	<testsuite name="AllTests" tests="20">
+		<testcase classname="AllTests" name="CounterConstruction"/>
+		<testcase classname="AllTests" name="CounterDefaultConstruction"/>
+		<testcase classname="AllTests" name="CounterIncrementIncrementsByOneFromZero"/>
+		<testcase classname="AllTests" name="CounterIncrementIncrementsByOne"/>
+		<testcase classname="AllTests" name="CounterCanPrintItsValue"/>
+		<testcase classname="AllTests" name="test_second::CounterConstruction"/>
+		<testcase classname="AllTests" name="test_second::CounterDefaultConstruction"/>
+		<testcase classname="AllTests" name="test_second::CounterIncrementIncrementsByOneFromZero"/>
+		<testcase classname="AllTests" name="test_second::CounterIncrementIncrementsByOne"/>
+		<testcase classname="AllTests" name="test_second::CounterCanPrintItsValue"/>
+		<testcase classname="AllTests" name="test_third::CounterConstruction"/>
+		<testcase classname="AllTests" name="test_third::CounterDefaultConstruction"/>
+		<testcase classname="AllTests" name="test_third::CounterIncrementIncrementsByOneFromZero"/>
+		<testcase classname="AllTests" name="test_third::CounterIncrementIncrementsByOne"/>
+		<testcase classname="AllTests" name="test_third::CounterCanPrintItsValue"/>
+		<testcase classname="AllTests" name="test_fourth::CounterConstruction"/>
+		<testcase classname="AllTests" name="test_fourth::CounterDefaultConstruction"/>
+		<testcase classname="AllTests" name="test_fourth::CounterIncrementIncrementsByOneFromZero"/>
+		<testcase classname="AllTests" name="test_fourth::CounterIncrementIncrementsByOne"/>
+		<testcase classname="AllTests" name="test_fourth::CounterCanPrintItsValue"/>
+	</testsuite>
+</testsuites>
