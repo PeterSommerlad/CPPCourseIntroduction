@@ -53,9 +53,10 @@ Write a test that checks what happens at the end of the input with the input str
 
 ## b) `wlist` revisited using `Word` (see exercise 4-e)
 
-Based on this class Word, implement the exercise **wlist** from last week ExW4 with this class. How does the program become simpler with your library class instead of using `std::string` (it should)?
+Based on this class Word, implement the exercise **wlist** from exercise 4-e with this class. How does the program become simpler with your library class instead of using `std::string` (it should)?
 
 
+----
 
 ## Inspiration for unit tests for `Word`
 
