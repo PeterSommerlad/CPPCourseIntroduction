@@ -2,7 +2,7 @@
 
 In this exercise you will facilitate an associative container to create a histogram of `Word` (your own `Word` class) objects and use an `std::set` to create a sorted occurrence structure.
 
-## Histogram Function
+## a) Histogram Function
 
 Create the header and source files `statistics.h` and `statistics.cpp` featuring a namespace `statistics`. In these files implement a function `histogram` that counts `Word` occurrences on an `std::istream` and creates an `std::map` with the `Word` as key and the count of type `int` as value:
 
@@ -29,8 +29,20 @@ nach: 1
 Wenn: 1
 ```
 
+Try also 
 
-## `HistogramEntry` Class
+```
+How much wood would a woodchuck chuck if a woodchuck could chuck wood?
+A woodchuck would chuck no amount of wood since a woodchuck cannot chuck wood.
+But if a woodchuck could chuck and would chuck some amount of wood, what amount of wood would a woodchuck chuck?
+Even if a woodchuck could chuck wood, and even if a woodchuck would chuck wood, should a woodchuck chuck wood? 
+A woodchuck should chuck if a wood-chuck could chuck wood, as long as a woodchuck would chuck wood.
+```
+
+source: [https://www.imdb.com/title/tt0244661/quotes/qt0221710](https://www.imdb.com/title/tt0244661/quotes/qt0221710)
+
+
+## b) `HistogramEntry` Class
 
 As preparation for the next step implement a helper class `HistogramEntry`, which will be used as element type for `std::set` later. It is a class that contains the `Word` and its number of occurrences. In order to use this type in an `std::set` and to print them you should implement the following operators:
 
@@ -55,7 +67,7 @@ std::cout << sheets; //prints: Sheet: 5
 ```
 
 
-## Find Top N Elements
+## c) Find Top N Elements
 
 Implement a function `top` in the `statistics` namespace that prints the `n` most frequent `Word`s given a histogram-`map` from above. Signature for `top`:
 
@@ -70,7 +82,7 @@ std::set<HistogramEntry> top(std::map<Word, int> const & occurrences, int n);
 * To get from `std::map` entries to `HistogramEntry`s you can use `std::for_each` or sneak-peek at `std::transform` and `std::inserter`. We will cover them next week.
 
 
-## Print Top N Elements
+## d) Print Top N Elements
 
 Implement a function `printOccurrences` that takes an `std::istream`, an `std::ostream` and an `int n`. It reads the words from the `std::istream` and prints the `n` most frequent words and their number of occurrence on the `std::ostream`.
 
