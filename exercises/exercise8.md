@@ -1,14 +1,45 @@
-# Exercise 9: Algorithms
+# Exercise 8: Algorithms
 
 ## a) Checking for Palindromes
 
  A palindrome is a word or sentence that can be read from its beginning and its end and results in the same word (in our example ignore whitespace). For example, the name "Otto" is a palindrome. Write a predicate `is_palindrome(std::string)` taking a string and returning if the string is a palindrome (ignoring letter case).
 
-Use that function to find all palindromes in the dictionary file in the exercise templates.
+Use that function to find all palindromes in the [linux words dictionary](https://raw.githubusercontent.com/PeterSommerlad/CPPCourseIntroduction/main/exercises/linuxwords.txt) (or use /usr/share/dict/words)
 
-## b) Algorithms Trivia
 
-Use Cevelop to "Import Existing Projects into Workspace" to obtain the project **algorithm_trivia** in the folder src. To allow using it without cloning the repository, you can download [algorithm_trivia.zip](https://github.com/PeterSommerlad/CPPCourseIntroduction/raw/main/src/algorithm_trivia.zip) and unpack it locally. And then import the directory. 
+## b) Word Statistics
+
+Use your class `Word` and create the following simple programs that provide the following results. 
+
+* Remember: your `Word` class ignores case when compared and also ignores punctuation and white space. 
+* Don't program your own loops. 
+* Use appropriate data structures but don't store data unnecessarily.
+
+Implement the following functions:
+
+* `unsigned wcount(std::istream &)`: Returns the number of words in standard input
+* `void nth(std::istream &, std::ostream &, unsigned nth)`: Count words and print out `nth` most frequent. Similar to the `printOccurrences` function in Exercise 7, but only print the nth most frequent word (only a single word). Do not reuse exact code of `printOccurrences`, but again use the most optimal data structure and algorithms for this problem. 
+
+
+## c) Prime Numbers
+
+Write a program primes that outputs prime numbers. Create a predicate function `isPrime(int)`. 
+
+* Use that predicate to filter a vector filled with numbers from `1` to `100`. 
+* Don't write your own loops but use the most fitting algorithms from the standard library (i.e., don't use `for_each()` with a lambda, when there exists a better algorithm.) 
+* Can there be a solution for where even `isPrime()` is not using a hand-written loop?
+
+Variants of your program:
+
+* How many prime numbers do you get in the range `1..100`?
+* How many in the range `1..1000`?
+ 
+
+
+
+## d) Algorithms Trivia
+
+Use Cevelop to "Import Existing Projects into Workspace" to obtain the project **algorithm_trivia** in the folder src. To allow using it without cloning the repository, you can download [algorithm_trivia.zip](https://github.com/PeterSommerlad/CPPCourseIntroduction/raw/main/src/algorithm_trivia.zip) and unpack it locally. And then import the project in the directory. 
 
 For using the existing STL algorithms effectively you have to familiarize yourself with available functionality. We have prepared a CUTE test project (`algorithm_trivia`) with a large set of test cases which require you to insert the correct STL algorithm in order to get the test green. It contains several test suites, each containing some test cases. Usually, those cases fail with the current implementation. We have replaced the original calls with dummy functions (`xxx`, `xxxx`, `xxxxx`, `xxxxxx`) that satisfy the interface. You don't have to worry about these helper functions. Your task is to fix the test cases by calling the correct STL algorithm (instead of the helper function).
 
@@ -18,7 +49,7 @@ Have Fun!
 
 
 
-## c) Generating Anagrams
+## e) Generating Anagrams
 
 Write a program that reads a word from standard input and creates all possible anagrams (permutations of the letters in the word).
 
@@ -29,3 +60,6 @@ On Linux/Mac/Unix you can read in the file /usr/share/dict/words into a data str
 How many anagrams forming a word according to your system's dictionary do you find for the word "listen" ?
 
 **Extension:** Can you extend your program in a way that it also will check for valid anagrams consisting of multiple words, i.e., `"Vacation time" = "I am not active"` (might be a bit harder and slower). 
+
+**Variation:** Can you find all 5-letter anagrams in the  [Wordle_wordlist](https://raw.githubusercontent.com/PeterSommerlad/CPPCourseIntroduction/main/exercises/Wordle_wordlist) 
+that have more than N anagrams in that list, so they are hard to guess (N>=4).

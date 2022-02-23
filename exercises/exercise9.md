@@ -1,4 +1,4 @@
-# Exercise 8:  KWIC - Keyword in Context
+# Exercise 9:  KWIC - Keyword in Context
 
 From Parnas [[Parnas72](http://dl.acm.org/citation.cfm?id=361623&coll=ACM&dl=ACM)] we have a concise definition of the Keyword in Context problem:
 
