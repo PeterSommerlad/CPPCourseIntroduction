@@ -39,7 +39,7 @@ The landscape architects Andrea and Melanie plan gardens with beds of geometric 
 
 A possible garden bed arrangement with 3 triangles, a diamond, 2 squares and a rectangle may look like the following diagram:
 
-![garden plan](./gardenplannig.png)
+![garden planning](https://github.com/PeterSommerlad/CPPCourseIntroduction/raw/main/exercises/gardenplanning.png)
 
 Write a program that supports the landscape architect's work and that creates a shopping lists giving the number of pegs, the length of string and the amount of seeds to buy. 
 
