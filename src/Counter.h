@@ -78,8 +78,8 @@ struct Counter {
     return *this;
   }
   Counter operator++(int) & { // c++
-    Counter result{*this}; 
-    ++*this;
+    Counter result{*this}; // save
+    ++ *this; // delegate to prefix
     return result;
   }
   friend
@@ -96,7 +96,7 @@ struct Counter {
   }
   constexpr friend bool
   operator !=(Counter const &left, Counter const &right) {
-    return !(left == right);
+    return !(left == right); // delegate to ==
   }
 #endif
 private:
@@ -119,4 +119,102 @@ public:
 };
   
 }
+
+namespace fifth {
+struct Counter {
+  explicit constexpr
+  Counter(int const initial)
+  : theCount{initial}{}
+  constexpr
+  Counter() = default;
+  Counter& operator++() & { // ++c
+    ++theCount;
+    return *this;
+  }
+  Counter operator++(int) & { // c++
+    Counter result{*this};
+    ++ *this;
+    return result;
+  }
+  friend
+  std::ostream& operator<<(std::ostream &out, Counter const & c) {
+    return out << c.theCount;
+  }
+#if __cplusplus >= 202000
+  constexpr
+  bool operator==(Counter const &other) const = default;
+  constexpr
+  auto operator<=>(Counter const &other) const = default;
+#else
+  constexpr friend bool
+  operator==(Counter const &left, Counter const &right) {
+    return left.theCount == right.theCount;
+  }
+  constexpr friend bool
+  operator !=(Counter const &left, Counter const &right) {
+    return !(left == right);
+  }
+
+
+
+  constexpr friend bool
+  operator<(Counter const &left, Counter const &right) {
+    return left.theCount < right.theCount;
+  }
+  constexpr friend bool
+  operator>=(Counter const &left, Counter const &right) {
+    return !(left < right);
+  }
+  constexpr friend bool
+  operator>(Counter const &left, Counter const &right) {
+    return (right < left);
+  }
+  constexpr friend bool
+  operator<=(Counter const &left, Counter const &right) {
+    return !(right < left);
+  }
+
+#endif
+protected:
+  int theCount { };
+};
+
+
+
+
+
+
+
+
+
+struct DecrementableCounter : Counter {
+  using Counter::Counter; // inherit ctors
+  Counter& operator--() & { // --c
+    --theCount;
+    return *this;
+  }
+  Counter operator--(int) & { // c--
+    Counter result{*this}; // save result
+    -- *this; // delegate to prefix
+    return result;
+  }
+};
+
+}
+
+
+
+
+
+#include <iosfwd>
+namespace second_separate_impl {
+struct Counter {
+  int theCount { };
+  void increment() &;
+  void print(std::ostream &out) const;
+};
+}
+
+
+
 #endif

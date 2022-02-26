@@ -27,9 +27,19 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>src/Counter.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/src/Counter.cpp</locationURI>
+		</link>
+		<link>
 			<name>src/Counter.h</name>
 			<type>1</type>
 			<locationURI>PARENT-14-ECLIPSE_HOME/Documents/talks/Firmenkurse/workshop/sources/CPPCourseIntroduction/src/Counter.h</locationURI>
+		</link>
+		<link>
+			<name>src/CounterTest.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/src/CounterTest.cpp</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>

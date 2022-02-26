@@ -1,0 +1,13 @@
+<testsuites>
+	<testsuite name="AllTests" tests="9">
+		<testcase classname="AllTests" name="testCanPassWallIsFalse"/>
+		<testcase classname="AllTests" name="testCanPassEmpty"/>
+		<testcase classname="AllTests" name="testCanPassPellet"/>
+		<testcase classname="AllTests" name="testCanPassPowerPellet"/>
+		<testcase classname="AllTests" name="testPacmanEatsPellet"/>
+		<testcase classname="AllTests" name="testPacmanEatsPowerPellet"/>
+		<testcase classname="AllTests" name="testPacmanWarpsThroughDoor"/>
+		<testcase classname="AllTests" name="testPacmanPassesEmpty"/>
+		<testcase classname="AllTests" name="testPacmanWillnotTryPassingWalls"/>
+	</testsuite>
+</testsuites>

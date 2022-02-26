@@ -12,7 +12,7 @@
 #include <sstream>
 #include <string>
 
-void thisIsATest() {
+void testCanPassWallIsFalse() {
 	using namespace std::literals;
 	auto const caselesscompare = [](auto l, auto r){
 		return std::lexicographical_compare(std::begin(l),std::end(l),std::begin(r),std::end(r),
@@ -32,7 +32,7 @@ void thisIsATest() {
 bool runAllTests(int argc, char const *argv[]) {
 	cute::suite s { };
 	//TODO add your test here
-	s.push_back(CUTE(thisIsATest));
+	s.push_back(CUTE(testCanPassWallIsFalse));
 	cute::xml_file_opener xmlfile(argc, argv);
 	cute::xml_listener<cute::ide_listener<>> lis(xmlfile.out);
 	auto runner = cute::makeRunner(lis, argc, argv);

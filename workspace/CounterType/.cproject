@@ -42,7 +42,7 @@
 									<listOptionValue builtIn="false" value="/Users/sop/Documents/talks/Firmenkurse/workshop/sources/CPPCourseIntroduction/src"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/cute}&quot;"/>
 								</option>
-								<option id="gnu.cpp.compiler.option.dialect.std.483896460" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.cpp.compiler.dialect.c++17" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.dialect.std.483896460" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.cpp.compiler.dialect.c++2a" valueType="enumerated"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.2119977533" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.macosx.exe.debug.2101275928" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.macosx.exe.debug">
