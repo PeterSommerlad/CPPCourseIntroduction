@@ -1,0 +1,8 @@
+<testsuites>
+	<testsuite name="AllTests" tests="4">
+		<testcase classname="AllTests" name="test_two_is_prime"/>
+		<testcase classname="AllTests" name="test_print_primes_up_to_two"/>
+		<testcase classname="AllTests" name="test_print_primes_up_to_three"/>
+		<testcase classname="AllTests" name="test_print_primes_up_to_1000"/>
+	</testsuite>
+</testsuites>

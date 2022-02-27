@@ -1,0 +1,7 @@
+<testsuites>
+	<testsuite name="AllTests" tests="3">
+		<testcase classname="AllTests" name="test_wcount_for_empty_input_is_0"/>
+		<testcase classname="AllTests" name="test_wcount_for_one_input_line"/>
+		<testcase classname="AllTests" name="test_wcount_for_multiple_input_lines"/>
+	</testsuite>
+</testsuites>
