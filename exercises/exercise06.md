@@ -47,7 +47,6 @@ Write a test that checks what happens at the end of the input with the input str
 *  Implementing `operator==` using `operator<` is inefficient for word. Use an appropriate algorithm that does the job in a single pass each.
 *  Avoid creating a case-less intermediate string representation of the word content for comparison.
 *  You will need some means to avoid reading over the end of the word on a stream (check the `peek()` member function of `std::istream`).
-*  Implement all non-operator member functions in the source-file.
 *  Do **NOT ** create a `getter` or `setter` member function, keep the encapsulation.
 
 

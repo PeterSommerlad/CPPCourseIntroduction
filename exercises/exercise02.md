@@ -99,7 +99,6 @@ int main() {
 }
 ```
 
-**Note:** The function `calc()` with all of its test will be part of the first hand in later ("Testat"). Show your solution including your CUTE unit tests to your exercise supervisor, you will get feedback!
 
 
 
