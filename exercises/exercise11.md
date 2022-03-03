@@ -31,7 +31,6 @@ What changes are required to the code above in order to have the member function
 
 *  Explain what a pure virtual member function is. What are the implications of having one?
 
-*  How can you store shapes (`shape` is the base class and can have derived classes like `square` and `diamond`, see exercise below) in a `std::vector` without producing memory leaks or object slicing?
 
 ## Support garden planning
 
