@@ -48,7 +48,7 @@ struct Door : BoardElement {
   bool canPass() const { return true; }
   void passElement(Pacman&p) & { p.warp(*this);  }
 };
-bool canPass(BoardElement const be){
+bool canPass(BoardElement const &be){
   return be.canPass();
 }
 void passElement(Pacman &pacman, BoardElement &be){

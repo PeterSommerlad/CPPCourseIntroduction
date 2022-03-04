@@ -55,8 +55,8 @@ bool canPass(BoardElement be){
 }
 void passElement(Pacman &pacman, BoardElement be){
   std::visit(overloaded{
-    //[](auto){FAILM("not a visited element");},
-    [](Wall){ throw std::logic_error{"cannot pass through walls"} ;},
+    [](auto){FAILM("not a visited element");},
+    //[](Wall){ throw std::logic_error{"cannot pass through walls"} ;},
     [](Empty){/* nothing */},
     [&pacman](Door d){ d.passThrough(pacman);},
     [&pacman](Pellet p){ p.consumed(pacman);},
