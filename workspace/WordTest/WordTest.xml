@@ -1,0 +1,34 @@
+<testsuites>
+	<testsuite name="AllTests" tests="30">
+		<testcase classname="AllTests" name="test_cannot_create_empty_word"/>
+		<testcase classname="AllTests" name="test_cannot_create_word_with_space"/>
+		<testcase classname="AllTests" name="test_cannot_create_word_with_number"/>
+		<testcase classname="AllTests" name="test_cannot_create_word_with_punctuation"/>
+		<testcase classname="AllTests" name="test_output_operator"/>
+		<testcase classname="AllTests" name="test_same_words_are_equal"/>
+		<testcase classname="AllTests" name="test_different_words_are_not_equal"/>
+		<testcase classname="AllTests" name="test_same_word_with_different_cases_are_equal"/>
+		<testcase classname="AllTests" name="test_same_word_is_not_lower_than"/>
+		<testcase classname="AllTests" name="test_smaller_word_is_smaller"/>
+		<testcase classname="AllTests" name="test_smaller_word_with_capital_letters_is_smaller"/>
+		<testcase classname="AllTests" name="test_same_word_with_different_cases_are_not_smaller"/>
+		<testcase classname="AllTests" name="test_greater_word_is_greater"/>
+		<testcase classname="AllTests" name="test_greater_word_with_capital_letters_is_greater"/>
+		<testcase classname="AllTests" name="test_smaller_word_is_less_equal"/>
+		<testcase classname="AllTests" name="test_same_word_is_less_equal"/>
+		<testcase classname="AllTests" name="test_greater_word_is_greater_equal"/>
+		<testcase classname="AllTests" name="test_same_word_is_greater_equal"/>
+		<testcase classname="AllTests" name="test_input_operator_single_word"/>
+		<testcase classname="AllTests" name="test_input_operator_single_word_stream_good"/>
+		<testcase classname="AllTests" name="test_input_operator_called_once_first_word"/>
+		<testcase classname="AllTests" name="test_input_operator_called_once_stream_good"/>
+		<testcase classname="AllTests" name="test_input_operator_on_empty_stream_fail"/>
+		<testcase classname="AllTests" name="test_input_operator_on_stream_without_word"/>
+		<testcase classname="AllTests" name="test_input_operator_on_empty_stream_word_unchanged"/>
+		<testcase classname="AllTests" name="test_input_operator_stops_on_slash"/>
+		<testcase classname="AllTests" name="test_input_operator_stops_at_end_of_word"/>
+		<testcase classname="AllTests" name="test_input_operator_skips_leading_non_alpha"/>
+		<testcase classname="AllTests" name="test_input_operator_overwrites_word"/>
+		<testcase classname="AllTests" name="test_exercise_example"/>
+	</testsuite>
+</testsuites>
