@@ -1,103 +1,86 @@
-# Exercise 2 - Simple Calculator
+# Exercise 2. Counting Input Elements
 
 In this exercise you will...
 
-  - implement a function for performing different operations on function parameters and return the result.
-  - read formatted input from an `std::istream`
-  - split a project containing an implementation and tests into tree projects: `library` (with implementation), `tests` and `executable`. This is a repetition of the modularization you have already performed on the `SayHello` project.
+  - implement various character counting algorithms.
+  - use the input operator (`>>`) to read different types from `std::istream &`.
+  - figure out how when the input operator (`>>`) skips white-space characters and how to avoid that skipping.
+  - this is a precursor to the next exercise, where we solve these problems without loops.
+
+**Hints:**
+
+  - Please consult your https://cppreference.com on `iostreams` to figure out which member function to use, if the input operator `>>` doesn’t help with solving the problem. 
+  - Start with a CUTE Project and implement the functions and tests directly in the `Test.cpp` file. Afterwards, when you are happy with your code you can separate the tests and the implementation as described below. 
+  - You should use an `std::istringstream` to provide your input from in test cases.
+  - Do not forget to write unit tests for the following cases:
+    - How does your functional core behave with empty input? 
+    - Do you always get the result you are expecting?
+  - Try not to store too much of the input
+  - All the counting programs should look quite similar in structure
+  - If you experience problems because your program does not terminate properly try to shut down your program using the red box in the Console window it is running within Cevelop
+  - It can cause to hang your Cevelop IDE on some of the platforms (Mac). When that happens, you need to kill your own program from a terminal window or task manager/system monitor/activity monitor. This should make Cevelop usable again. If all fails, you might need to restart Cevelop as well
 
 
-
-## a) Implement a `calc` function
-
-Create a function with the signature `int calc(int, int, char)` that takes two numbers an a character denoting an operator symbol (`'+'`, `'-'`, `'*'`, `'/'` and `'%'`). The function `calc` should interpret the operator character and compute its result by combining the two integers accordingly. To give you a headstart you can use the code below in a CUTE Project as `Test.cpp`. Add additional test cases for the corner cases of the function. Consider and test valid and invalid input, e.g. unknown operators and division by zero. What options for error handling are feasible? Discuss them with your supervisor and your peers.
-
-To start, just use a single CUTE Test Project and develop your code there. In the last part of this exercise you will split the code into different projects.
+## a) charc: Count non-whitespace char
+ 
+Write a function `charc()` to count non-whitespace char values by reading from an input stream (`std::istream)`). The result should be the number of characters found in the stream.
 
 ```cpp
-#include "cute.h"
-#include "ide_listener.h"
-#include "xml_listener.h"
-#include "cute_runner.h"
-
-int calc(int lhs, int rhs, char op) {
-  //TODO Implement functionality
-  return 0;
-}
-
-void test_one_plus_one() {
-  auto result = calc(1, 1, '+');
-  ASSERT_EQUAL(2, result);
-}
-
-//TODO Add more tests here
-
-
-bool runAllTests(int argc, char const *argv[]) {
-  cute::suite s { };
-  //TODO Register tests
-  s.push_back(CUTE(test_one_plus_one));
-  cute::xml_file_opener xmlfile(argc, argv);
-  cute::xml_listener<cute::ide_listener<>> lis(xmlfile.out);
-  auto runner { cute::makeRunner(lis, argc, argv) };
-  bool success = runner(s, "AllTests");
-  return success;
-}
-
-int main(int argc, char const *argv[]) {
-  return runAllTests(argc, argv) ? EXIT_SUCCESS : EXIT_FAILURE;
+unsigned charc(std::istream & input) {
+  //Your implementation of charc
 }
 ```
 
-Hint for the implementation: Consider using a `switch` statement in the `calc` function.
+**Example:** if you call the `charc()` function with a stream containing the characters `Hello, world!`, the function should return `12`.
 
-## b) Extension: Simple calculator with stream input 
+Please note, that the input `operator >>` always skips white space characters such as blank, tab and newline.
 
-Extend your simple calculator from above and create an additional function `int calc(std::istream& in)` that will read a number, an operator character and another number from the `istream` `in` and compute the result of the operation. E.g. `1 + 1` results in `2`. Also provide unit tests for this new calculator. 
+## b) allcharc: Count all characters
+ 
+Create a function `allcharc()` with the same signature as `charc()`. The `allcharc()` function must not skip white-space characters when counting.
 
-When tests for a function taking an `std::istream &` as argument, you have to create an `std::istringstream` that contains the given input.
+**Hints:**
 
-```cpp
-void testCalcWithStream() {
-  std::istringstream input{"95/5"};
-  auto result = calc(input);
-  //...
-}
-```
+  -  You might need to use a member function of `std::istream` to achieve that.
+  -  You should first write test cases for your new function, before implementing the function!
 
-## c) Modularization: Separate Projects
 
-You have implemented the complete functionality of the `calc` function in the unit test project. In order to use them in an executable it would be desirable to have them in a separate library. This is best realized stepwise.
+**Question:** Can you find other means (than the member function of `std::istream`) to not _skip the white space_ ?
+
+## c) wc: Count words
+ 
+Write a function `wc()`, calling it to count words separated by white space character by reading from a given `std::istream`. The result should be the number of words found in the stream.
+
+A word should be defined by what the input operator (`>>`) decides to be read as a `std::string`.
+
+## d) lc: Count lines
+ 
+Write a function `lc()` to count the lines by reading from standard input.
+
+**Hint:** There are several means to achieve that, for example, count the characters matching the newline character `'\n'`, or, use the `getline()` function and count how often you can call it until you reach the end of the input.
+
+## e) Modularization:  Separate Projects
+ 
+After you have implemented all functions you can split up the structure as follows:
 
   - Separation into new compilation unit (`.cpp` file)
-    - Move the `calc` functions to a new source file (`calculator.cpp`) in the test project
-    - To be able to use the `calc` functions from the tests in the `Test.cpp` file a header file with the corresponding declarations is required. Create a header file (`calculator.h`) which contains an include guard and the declarations for both functions.
-    - Add an include directive for including the `calculator.h` header file to both source files `Test.cpp` and `calculator.cpp`.
+    - move the functions to a _new source file_ `charcount.cpp` and add the `#include` directives for the standard library parts used.
+    - to be able to use the functions from other translation units, create a _new header file_ `counting.h` and declare the functions there. Add the minimal required header `#include` in the header file and don't forget to `#include "charcount.h"` in your source file `charcount.cpp`
+  - Create a _New C++ Static Library project_ "charcount" that contains the two files `charcount.cpp` and `charcount.h`
+  - Create a _New C++ CUTE project_ test project for testing the library. It contains the `Test.cpp` file with all CUTE tests. You can also split the test functions into CUTE suites for each function, if you like.
+  - Now we need to tell Cevelop that there is a dependency from the test project to the new library project
+    - Open the references of the test project: Right-click on the test project `-> Properties -> C/C++ General -> Paths and Symbols -> References (Tab)`
+    - Tick the library project and press apply. This should automatically add the library project to the includes (Includes tab), the library of the library project (`Library` tab) and the library path of the library project (`Library Paths` tab). If those are missing add them manually - ask for assistance if it does not work.
+  - Create a _New C++ executable project_ for **each** feature: `charc()`, `allcharc()`, `wc()` and `lc()`. In each executable project there only exists a `main.cpp` with a simple `main()` function that calls the corresponding library function with `std::cin` as argument and prints the result to `std::cout`.
+     - Each of these projects requires the settings to be adapted, so that the compiler settings will have the correct `INCLUDE_PATH` and `LIBRARY_PATH` for the "charcount" library project as well as the library flag (`-lcharcount`)
+  
 
 
-Now your test project should compile without errors and run as before. If not figure out why and fix remaining errors. 
+**Note:** Do not write any fancy "UI", so that you can use your programs also as filters within a shell-pipeline.
 
-  - Separation into distinct projects
-    - Create a new Static Library Project
-    - Move the files `calculator.h` and `calculator.cpp` to this new project
-    - Now we need to tell Cevelop that there is a dependency from the test project to the new library project
-      - Open the references of the test project: Right-click on the test project `-> Properties -> C/C++ General -> Paths and Symbols -> References (Tab)`
-      - Tick the library project and press apply. This should automatically add the library project to the includes (Includes tab), the library of the library project (`Library` tab) and the library path of the library project (`Library Paths` tab). If those are missing add them manually - ask for assistance if it does not work.
+Compare the result of your function with the size of the file you use as input on the console (e.g., `$ allcharc < file.txt`). You executables should be located in the `Debug` directory of the executable project.
 
 
-Now your test project should compile without errors and run as before. If not figure out why and fix remaining error. 
-
-  - Executable project 
-
-Now create an executable project with a `main.cpp` source file that contains the following main function. You have to set up the dependencies from the executable project to the library project as well (See steps above). Then you can use your calculator from the console.
-
-```cpp
-int main() {
-  while (std::cin) {
-    std::cout << '=' << calc(std::cin) << '\n';
-  }
-}
-```
 
 
 

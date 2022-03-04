@@ -1,23 +1,13 @@
-# Exercise 3. Counting Input Elements
-In this exercise you will...
 
-  - implement various character counting algorithms.
-  - use the input operator (`>>`) to read different types from `std::istream`.
-  - figure out how when the input operator (`>>`) skips white-space characters and how to avoid that skipping.
-  - this is a precursor to the next exercise, where we solve these problems without loops.
+# Exercise 3. Counting again - without loops
+
+This exercise repeats the problems of the last exercise. However, now you need to solve the task without writing a loop of your own, but by using iterators and algorithms of the standard library. One function you might need to know about is `std::distance()` that takes two iterators forming a range and returns the number of elements in that range. Using distance is convenient for counting all elements in a range.
+
+If you are unsure about the correct solution, start out with encapsulating it in a function and write unit tests first using `std::stringstream` objects as input and output substitutes. Create all solutions by using algorithms instead of loops. If you can not achieve that, please ask your supervisor for tips.
 
 **Hints:**
 
-  - Please consult your cppreference.com on `iostreams` to figure out which member function to use, if the input operator `>>` doesn’t help with solving the problem. 
-  - Like in the previous exercise start with a CUTE Project and implement the functions and tests directly in the `Test.cpp` file. Afterwards, when you are happy with your code you can separate the tests and the implementation as described above. 
-  - You should use an `std::istringstream` to provide your input from in test cases.
-  - Do not forget to write unit tests for the following cases:
-    - How does your functional core behave with empty input? 
-    - Do you always get the result you are expecting?
-  - Try not to store too much of the input
-  - All the counting programs should look quite similar in structure
-  - If you experience problems because your program does not terminate properly try to shut down your program using the red box in the Console window it is running within Cevelop
-  - It can cause to hang your Cevelop IDE on some of the platforms (Mac). When that happens, you need to kill your own program from a terminal window or task manager/system monitor/activity monitor. This should make Cevelop usable again. If all fails, you might need to restart Cevelop as well
+  - Like in the previous exercises start with a CUTE Project and implement the functions and tests directly in the `Test.cpp` file. Afterwards, when you are happy with your code you can separate the tests and the implementation as described above. 
 
 
 ## a) charc: Count non-whitespace char
@@ -30,44 +20,63 @@ unsigned charc(std::istream & input) {
 }
 ```
 
-**Example:** if you call the `charc()` function with a stream containing the characters `Hello, world!`, the function should return `12`.
-
-Please note, that the input `operator >>` always skips white space characters such as blank, tab and newline.
-
 ## b) allcharc: Count all characters
  
 Create a function `allcharc()` with the same signature as `charc()`. The `allcharc()` function must not skip white-space characters when counting.
 
 **Hints:**
 
-  -  You might need to use a member function of `std::istream` to achieve that.
-  -  You should first write test cases for your new function, before implementing the function!
+  -  You need to use the stream iterator that does not skip whitespace characters to achieve that.
 
-
-**Question:** Can you find other means (than the member function of `std::istream`) to not skip the white space?
 
 ## c) wc: Count words
  
-Write a function `wc()`, calling it to count words separated by white space character by reading from a given `std::istream`. The result should be the number of words found in the stream.
+Write a function `wc()`, calling it to count words separated by white space character by reading from a given `std::istream`. The result should be the number of words found in the stream. Use an iterator and `std::distance()` to calculate the result.
 
 A word should be defined by what the input operator (`>>`) decides to be read as a `std::string`.
 
 ## d) lc: Count lines
  
-Write a function `lc()` to count the lines by reading from standard input.
+Write a function `lc()` to count the lines by reading from an istream.
 
-**Hint:** There are several means to achieve that, for example, count the characters matching the newline character `'\n'`, or, use the `getline()` function and count how often you can call it until you reach the end of the input.
+After checking its functionality using some unit tests, use that function in a program **lcount** that counts the number of lines available on standard input. The result should be printed on standard output. Compare your output with the result of the _wc -l_ command on a large text file.
 
-## e) Modularization
+<hr/>
+
+
+# e) Word List with `std::string`{.cpp}
+
+Write a program **wlist** that reads all words (as defined by std::string's input operator >>) from the standard input and produce a sorted list of all occurring words, where each word only is printed once. What data structure and algorithms are you using? Do not write your own loops nor use `std::for_each`.
+
+* e1) Can you ignore the case of letters, so that `Hello == hello` ?
+* e2) Can you ignore non-letter characters from input?
+
+
+**Hints:**
+*  Have a look at functions defined in `<cctype>` (character-type) and the available algorithms in `<algorithm>` (`std::lexicographical_compare()`).
+*  To implement the functionality with an `std::vector` you might need further algorithms: `sort()` and `unique()`
  
-After you have implemented all functions you can split up the structure as follows:
-
-  - Library project that contains all the implementations of the functions. It contains two files `charcount.cpp` and `charcount.h`
-  - A test project for testing the library. It contains the `Test.cpp` file with all CUTE tests. You can also split the test functions into CUTE suites for each function, if you like.
-  - An executable project for each feature: `charc()`, `allcharc()`, `wc()` and `lc()`. In each executable project there only exists a `main.cpp` with a simple main that calls the corresponding library function with `std::cin` as argument and prints the result to `std::cout`.
 
 
-**Note:** Do not write any fancy "UI", so that you can use your programs also as filters within a shell-pipeline.
+# 3. Extra exercises for self-study (Optional)
 
-Compare the result of your function with the size of the file you use as input on the console (e.g., `$ allcharc < file.txt`). You executables should be located in the `Debug` directory of the executable project.
+These relate to exercise2-extra.
+
+
+## f)  Sum numbers
+
+Write a function **sumi(std::istream&)** to sum up a sequence of integer numbers given on an input stream. Assume only numbers separated by whitespace are given. Return the resulting sum. Do not use a loop. How much would need to change to sum floating point numbers instead? Do so but in a separate function called **sumd(std::istream&)**
+
+## g)  Multiplication table
+
+Write a program **multab** to print a multiplication table for the integers from 1 to 20. Start by filling a `std::vector<int>` with the numbers 1 to 20. You shouldn't use a loop to create the table, therefore you might need to nest algorithm calls in a lambda expression or function call to get the nested iteration. The output can be generated onto an `std::ostream_iterator` with an algorithm that 'transforms' its input.
+
+Note: **use a lambda with capture by reference:**
+```
+[&](auto x){...}
+```
+
+## h) Decimal Fractions
+
+Can you vary your program _multab_ to print a table of decimal fractions (**fractab**) for a divided by b, where a and b take the range from 1 to 10? Also without any self-made loops.
 
