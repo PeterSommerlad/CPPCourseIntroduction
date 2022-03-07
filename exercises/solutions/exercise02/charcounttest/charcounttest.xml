@@ -1,0 +1,16 @@
+<testsuites>
+	<testsuite name="AllTests" tests="12">
+		<testcase classname="AllTests" name="emptyStreamCountsZeroCharc"/>
+		<testcase classname="AllTests" name="oneCharStreamCountsOneCharc"/>
+		<testcase classname="AllTests" name="manyCharStreamCountsCharc"/>
+		<testcase classname="AllTests" name="emptyStreamCountsZeroAllCharc"/>
+		<testcase classname="AllTests" name="oneCharStreamCountsOneAllCharc"/>
+		<testcase classname="AllTests" name="manyCharStreamCountsAllCharc"/>
+		<testcase classname="AllTests" name="emptyStreamCountsZeroWc"/>
+		<testcase classname="AllTests" name="oneCharStreamCountsOneWc"/>
+		<testcase classname="AllTests" name="manyCharStreamCountsWc"/>
+		<testcase classname="AllTests" name="emptyStreamCountsZeroLc"/>
+		<testcase classname="AllTests" name="onelineStreamCountsOneLc"/>
+		<testcase classname="AllTests" name="manyLineStreamCountsLc"/>
+	</testsuite>
+</testsuites>
