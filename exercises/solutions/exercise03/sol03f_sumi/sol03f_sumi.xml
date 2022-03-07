@@ -1,0 +1,8 @@
+<testsuites>
+	<testsuite name="AllTests" tests="4">
+		<testcase classname="AllTests" name="testsumionEmptyStream"/>
+		<testcase classname="AllTests" name="testsumionSingleValueStream"/>
+		<testcase classname="AllTests" name="testsumionMultipleValueStream"/>
+		<testcase classname="AllTests" name="testsumionwhitespaceOnlyStream"/>
+	</testsuite>
+</testsuites>
