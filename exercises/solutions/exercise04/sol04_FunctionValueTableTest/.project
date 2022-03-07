@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>sol05_FunctionValueTableTest</name>
+	<name>sol04_FunctionValueTableTest</name>
 	<comment></comment>
 	<projects>
-		<project>sol05_FunctionValueTable</project>
+		<project>sol04_FunctionValueTable</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

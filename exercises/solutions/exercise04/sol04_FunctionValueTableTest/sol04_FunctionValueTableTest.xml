@@ -1,0 +1,6 @@
+<testsuites>
+	<testsuite name="AllTests" tests="2">
+		<testcase classname="AllTests" name="testSimpleFunctionTable"/>
+		<testcase classname="AllTests" name="demoUsageWithTrigonometricFunctions"/>
+	</testsuite>
+</testsuites>
