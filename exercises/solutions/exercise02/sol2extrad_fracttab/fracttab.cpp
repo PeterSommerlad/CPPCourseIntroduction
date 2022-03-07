@@ -27,9 +27,10 @@ int main() {
 	auto const limit = enterlimit(std::cin, std::cout);
 	printheader(std::cout, limit);
 	for (unsigned i = 1; i <= limit; ++i) {
-		printnice(std::cout, i);
+		double const numerator = i; // enforce floating point division below
+		printnice(std::cout, numerator);
 		for (auto j = 1u; j <= limit; ++j) {
-			printnice(std::cout, double{i} / j);
+			printnice(std::cout, numerator / j);
 		}
 		std::cout << '\n';
 	}

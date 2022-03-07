@@ -1,8 +1,8 @@
 #include <iostream>
 
 void printnice(std::ostream & out, unsigned const i) {
-	std::cout.width(5);
-	std::cout << i;
+	out.width(5);
+	out << i;
 }
 
 void printheader(std::ostream &out, unsigned const limit) {
