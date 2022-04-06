@@ -1,0 +1,33 @@
+<testsuites>
+	<testsuite name="Histogram Tests" tests="5">
+		<testcase classname="Histogram Tests" name="testHistogramEmptyInput"/>
+		<testcase classname="Histogram Tests" name="testHistogramWithSingleWord"/>
+		<testcase classname="Histogram Tests" name="testHistogramWithSameWordInDifferentCasings"/>
+		<testcase classname="Histogram Tests" name="testHistogramOfMutlipleWords"/>
+		<testcase classname="Histogram Tests" name="testHistogramWithFlySentence"/>
+	</testsuite>
+	<testsuite name="Top Tests" tests="5">
+		<testcase classname="Top Tests" name="testTopForEmptyMapAndZeroNIsEmpty"/>
+		<testcase classname="Top Tests" name="testTopForEmptyMapAndLargeNIsEmpty"/>
+		<testcase classname="Top Tests" name="testTopForNonEmptyMapAndZeroNIsEmpty"/>
+		<testcase classname="Top Tests" name="testTopForNonEmptyMapAndLargerN"/>
+		<testcase classname="Top Tests" name="testTopForNonEmptyMapAndSmallerN"/>
+	</testsuite>
+	<testsuite name="PrintOccurrencesSuite" tests="2">
+		<testcase classname="PrintOccurrencesSuite" name="testOneRingToRuleThemAllOccurrences"/>
+		<testcase classname="PrintOccurrencesSuite" name="testFlies"/>
+	</testsuite>
+	<testsuite name="HistogramEntrySuite" tests="11">
+		<testcase classname="HistogramEntrySuite" name="testSameHistogramEntryIsEqual"/>
+		<testcase classname="HistogramEntrySuite" name="testEqualHistogramEntriesAreEqual"/>
+		<testcase classname="HistogramEntrySuite" name="testDifferentWordIsNotEqual"/>
+		<testcase classname="HistogramEntrySuite" name="testDifferentOccurrenceIsNnotEqual"/>
+		<testcase classname="HistogramEntrySuite" name="testSortingOfHistogramEntries"/>
+		<testcase classname="HistogramEntrySuite" name="testLessThanByOccurrence"/>
+		<testcase classname="HistogramEntrySuite" name="testLessThanByWord"/>
+		<testcase classname="HistogramEntrySuite" name="testLessThanOrEqual"/>
+		<testcase classname="HistogramEntrySuite" name="testGreaterThan"/>
+		<testcase classname="HistogramEntrySuite" name="testGreaterEqual"/>
+		<testcase classname="HistogramEntrySuite" name="testOutputOperator"/>
+	</testsuite>
+</testsuites>

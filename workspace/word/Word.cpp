@@ -9,23 +9,22 @@
 
 namespace text {
 
-void Word::read(std::istream &in) {
-	char c{};
-	while(in && ! std::isalpha(c)){
-		in.get(c);
+// DIY stream manipulator
+std::istream &skip_nonalpha(std::istream &in){
+	while(in && ! std::isalpha(in.peek())){
+		std::ignore = in.get();
 	}
-	if (!std::isalpha(c)) {
+	return in;
+}
+
+void Word::read(std::istream &in) & {
+	if (in >> skip_nonalpha) {
+		word.clear();
+		while(in && std::isalpha(in.peek()	)){
+			word.push_back(in.get());
+		}
+	} else {
 		in.setstate(std::ios::failbit);
-		return;
-	}
-	word.clear();
-	word.push_back(c);
-	while(in && std::isalpha(in.peek()	)){
-		in.get(c);
-		word.push_back(c);
-	}
-	if (!in && !word.empty()){
-		in.clear(); // might have read into eof, but still successful for the word
 	}
 }
 
