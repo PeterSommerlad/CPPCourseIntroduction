@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>commoncontainerapi</name>
+	<name>find_algorithm</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -26,14 +26,9 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>commoncontainerapi.cpp</name>
+			<name>find.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/src/commoncontainerapi.cpp</locationURI>
-		</link>
-		<link>
-			<name>src</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
+			<locationURI>PARENT-2-PROJECT_LOC/src/find.cpp</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>

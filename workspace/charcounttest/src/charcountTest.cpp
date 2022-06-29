@@ -29,12 +29,12 @@ void emptyStreamCountsZeroAllCharc(){
 }
 
 void oneCharStreamCountsOneAllCharc(){
-	std::istringstream in{"a"};
+	std::istringstream in{" "};
 	ASSERT_EQUAL(1u,allcharc(in));
 }
 
 void manyCharStreamCountsAllCharc(){
-	std::string const input{"a longer stream\nwith new \n\tlines\n"};
+	std::string const input{"a longer stream\nwith new \n\tlines\nmore text"};
 	std::istringstream in{input};
 	ASSERT_EQUAL(input.size(),allcharc(in));
 }
@@ -44,14 +44,14 @@ void emptyStreamCountsZeroWc(){
 }
 
 void oneCharStreamCountsOneWc(){
-	std::istringstream in{"a"};
+	std::istringstream in{"abc"};
 	ASSERT_EQUAL(1u,wc(in));
 }
 
 void manyCharStreamCountsWc(){
 	//                       1 2      3       4    5       6
 	std::istringstream in{"a longer stream\nwith new \n\tlines\n"};
-	ASSERT_EQUAL(6,wc(in));
+	ASSERT_EQUAL(6u,wc(in));
 }
 void emptyStreamCountsZeroLc(){
 	std::istringstream in{};

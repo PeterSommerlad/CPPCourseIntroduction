@@ -1,6 +1,12 @@
 <testsuites>
-	<testsuite name="AllTests" tests="2">
+	<testsuite name="AllTests" tests="4">
 		<testcase classname="AllTests" name="testSimpleFunctionTable"/>
 		<testcase classname="AllTests" name="demoUsageWithTrigonometricFunctions"/>
+		<testcase classname="AllTests" name="testSimpleGenerateValueList"/>
+		<testcase classname="AllTests" name="testGenerateValueListWithJustOneStep">
+			<failure message="../src/sol04_FunctionValueTableTest.cpp:25 testGenerateValueListWithJustOneStep: (std::vector&lt;double&gt;{1}) == generateValueList(1.0,1.0,0) expected:	std::vector&lt;double, std::allocator&lt;double&gt; &gt;{\n1}	but was:	std::vector&lt;double, std::allocator&lt;double&gt; &gt;{}	">
+testGenerateValueListWithJustOneStep: (std::vector&lt;double&gt;{1}) == generateValueList(1.0,1.0,0) expected:	std::vector&lt;double, std::allocator&lt;double&gt; &gt;{\n1}	but was:	std::vector&lt;double, std::allocator&lt;double&gt; &gt;{}	
+			</failure>
+		</testcase>
 	</testsuite>
 </testsuites>

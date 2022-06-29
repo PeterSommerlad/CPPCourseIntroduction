@@ -6,7 +6,7 @@
 #include <string>
 #include <cstdlib>
 #include <sstream>
-
+#include <algorithm>
 std::vector<int> fillWhile(std::istream &in){
     std::vector<int> v{};
     int val{};
@@ -50,7 +50,7 @@ std::vector<std::string> fillWithInsert(){
 std::vector<int> fillWithfill(){
   {
     std::vector<int> v{};
-    v.resize(10):
+    v.resize(10);
     fill(begin(v),end(v),2);
   }
     std::vector<int> v(10);
@@ -61,8 +61,8 @@ std::vector<int> fillWithfill(){
 }
 int accumulateIota(){
     std::array<int,100> a{};
-    iota(begin(a),end(a),1);
-    return accumulate(cbegin(a),cend(a),0);
+    std::iota(begin(a),end(a),1);
+    return std::accumulate(cbegin(a),cend(a),0);
 }
 
 
@@ -70,7 +70,7 @@ int accumulateIota(){
 void demo_generate(){
     std::vector<int> v(10);
     generate(begin(v),end(v),std::rand);
-    std::vector<double> powerOfTwos{};
+    std::vector<double> w{};
     generate_n(back_inserter(w),5,
       [x=1.0] () mutable {
         return x*=2.0;
