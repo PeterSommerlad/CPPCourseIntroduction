@@ -4,7 +4,7 @@
 
  A palindrome is a word or sentence that can be read from its beginning and its end and results in the same word (in our example ignore whitespace). For example, the name "Otto" is a palindrome. Write a predicate `is_palindrome(std::string)` taking a string and returning if the string is a palindrome (ignoring letter case).
 
-Use that function to find all palindromes in the [linux words dictionary](https://raw.githubusercontent.com/PeterSommerlad/CPPCourseIntroduction/main/exercises/linuxwords.txt) (or use /usr/share/dict/words)
+Use that function to find all palindromes in the [linux words dictionary](https://raw.githubusercontent.com/PeterSommerlad/CPPCourseIntroduction/main/exercises/exercise08/linuxwords.txt) (or use /usr/share/dict/words)
 
 
 ## b) Word Statistics
