@@ -44,7 +44,7 @@ After checking its functionality using some unit tests, use that function in a p
 <hr/>
 
 
-# e) Word List with `std::string`{.cpp}
+# e) Word List with `std::string`
 
 Write a program **wlist** that reads all words (as defined by std::string's input operator >>) from the standard input and produce a sorted list of all occurring words, where each word only is printed once. What data structure and algorithms are you using? Do not write your own loops nor use `std::for_each`.
 
