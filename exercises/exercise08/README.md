@@ -17,7 +17,7 @@ Use your class `Word` and create the following simple programs that provide the 
 
 Implement the following functions:
 
-* `unsigned wcount(std::istream &)`: Returns the number of words in standard input
+* `unsigned wcount(std::istream &)`: Returns the number of words in input stream
 * `void nth(std::istream &, std::ostream &, unsigned nth)`: Count words and print out `nth` most frequent. Similar to the `printOccurrences` function in Exercise 7, but only print the nth most frequent word (only a single word). Do not reuse exact code of `printOccurrences`, but again use the most optimal data structure and algorithms for this problem. 
 
 
