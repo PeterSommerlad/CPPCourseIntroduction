@@ -47,6 +47,8 @@ Since there are quite a few algorithms you don't have to solve all algorithms at
 
 Have Fun!
 
+A direct link to godbolt compiler explorer is [here](https://godbolt.org/z/vMjhdbWP8). Note, remove "Find Algorithms" to run all trivia tests, or replace it by the name of a test suite as spelled in Test.cpp including the quotes. Sometimes compiler explorer might timeout, change something to try again.
+
 
 
 ## e) Generating Anagrams
