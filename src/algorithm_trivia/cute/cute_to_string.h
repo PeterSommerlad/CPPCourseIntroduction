@@ -1,27 +1,37 @@
 /*********************************************************************************
  * This file is part of CUTE.
  *
- * CUTE is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ * Copyright (c) 2007-2018 Peter Sommerlad, IFS
  *
- * CUTE is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser General Public License for more details.
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
  *
- * You should have received a copy of the GNU Lesser General Public License
- * along with CUTE.  If not, see <http://www.gnu.org/licenses/>.
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
  *
- * Copyright 2007-2015 Peter Sommerlad
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
  *
  *********************************************************************************/
 
 #ifndef CUTE_TO_STRING_H_
 #define CUTE_TO_STRING_H_
+
 #include <string>
 #include <algorithm>
+#ifdef USE_STD17
+#include <cstddef>
+#endif
+
 namespace cute {
 namespace cute_to_string {
 		static inline std::string backslashQuoteTabNewline(std::string const &input){
@@ -66,10 +76,18 @@ namespace cute_to_string {
 #include <set>
 #endif
 #include "cute_demangle.h"
+#include "cute_determine_version.h"
+#ifdef USE_STD11
+#include "cute_integer_sequence.h"
+#include <tuple>
+#endif
 namespace cute {
 namespace cute_to_string {
 		template <typename T>
 		std::ostream &to_stream(std::ostream &os,T const &t); // recursion needs forward
+#ifdef USE_STD17
+		inline std::ostream &to_stream(std::ostream &os,std::byte t); // recursion needs forward
+#endif
 
 		// the following code was stolen and adapted from Boost Exception library.
 		// it avoids compile errors, if a type used with ASSERT_EQUALS doesn't provide an output shift operator
@@ -92,8 +110,13 @@ namespace cute_to_string {
 			template <class CONT>
 			struct has_begin_end_const_member {
 				template <typename T, T, T> struct type_check;
+#ifdef USE_STD17
+				template <typename C> static typename C::const_iterator test(
+						type_check<typename C::const_iterator (C::*)()const noexcept,&C::begin, &C::end>*);
+#else
 				template <typename C> static typename C::const_iterator test(
 						type_check<typename C::const_iterator (C::*)()const,&C::begin, &C::end>*);
+#endif
 				template <typename C> static char test(...);
 				enum e { value = (sizeof(char) != sizeof(test<CONT>(0)))
 				};
@@ -117,13 +140,13 @@ namespace cute_to_string {
 				if (!first) os<<',';
 				else first=false;
 				os << '\n'; // use newlines so that CUTE's plug-in result viewer gives nice diffs
-				cute_to_string::to_stream<T>(os,t);
+				cute_to_string::to_stream(os,t);
 			}
 		};
 		//try print_pair with specialization of template function instead:
 		// the generic version prints about missing operator<< that is the last resort
 		template <typename T>
-		std::ostream &print_pair(std::ostream &os,T const &t){
+		std::ostream &print_pair(std::ostream &os,T const &){
 			return os << "no operator<<(ostream&, " <<cute::demangle(typeid(T).name())<<')';
 		}
 		//the std::pair overload is useful for std::map etc. however,
@@ -145,6 +168,41 @@ namespace cute_to_string {
 			return os << '}';
 		}
 
+#ifdef USE_STD11
+		template<std::size_t Value>
+		using size = std::integral_constant<std::size_t, Value>;
+		struct empty { template<typename ...Types>empty(Types const &...){} };
+		template<typename ...Types, std::size_t _, std::size_t Head, std::size_t ...Indices>
+		std::ostream &print_tuple(std::ostream &os, std::tuple<Types...> const &t, size<_> const, index_sequence<Head, Indices...>){
+			empty{os << '\n'
+			      ,cute_to_string::to_stream(os, std::get<Head>(t))
+			      ,(os << ",\n", cute_to_string::to_stream(os, std::get<Indices>(t)))...};
+			return os;
+		}
+		template<typename ...Types, std::size_t _>
+		std::ostream &print_tuple(std::ostream &os, std::tuple<Types...> const &t, size<_> const s) {
+			return print_tuple(os, t, s, index_sequence_for<Types...>{});
+		}
+		template<typename ..._>
+		std::ostream &print_tuple(std::ostream &os, std::tuple<_...> const &t, size<1> const){
+			return os << '\n', cute_to_string::to_stream(os, std::get<0>(t));
+		}
+		template<typename ..._>
+		std::ostream &print_tuple(std::ostream &os, std::tuple<_...> const &, size<0>){
+			return os;
+		}
+		// overload for std::tuple<...>
+		template<typename ...Types>
+		std::ostream &print_pair(std::ostream &os, std::tuple<Types...> const &t){
+			os << cute::demangle(typeid(decltype(t)).name()) << '{';
+			auto olflags = os.flags();
+			os << std::boolalpha;
+			print_tuple(os, t, size<sizeof...(Types)>{});
+			os.flags(olflags);
+			os << '}';
+			return os;
+		}
+#endif
 		template <typename T, bool select>
 		struct select_container {
 			std::ostream &os;
@@ -190,6 +248,11 @@ namespace cute_to_string {
 			select_built_in_shift_if<T,cute_to_string::is_output_streamable<T>::value > out(os);
 			return out(t);
 		}
+#ifdef USE_STD17
+		inline std::ostream &to_stream(std::ostream &os,std::byte b){
+			return os << "0x" << hexit(static_cast<std::underlying_type_t<std::byte>>(b));
+		}
+#endif
 #ifdef _MSC_VER
 		// special overloads because VC can not detect begin/end
 		inline std::ostream& to_stream(std::ostream &os,std::string const &s){
@@ -241,9 +304,9 @@ namespace cute_to_string {
 			bool minint=false;
 			if (x == std::numeric_limits<T>::min()){ // can not easily convert it, assuming 2s complement
 				minint=true;
-				x +=1;
+				x++; // add 1, but 1 might be incompatible type, so use ++
 			}
-			if (x < 0) x = -x;
+			if (x < 0) x = static_cast<T>(-x);
 			if (x == 0) convert += '0';
 			while (x > 0) {
 				convert += "0123456789"[x%10];
@@ -267,7 +330,7 @@ namespace cute_to_string {
 			return to_string_embedded_int_signed(t,impl_place_for_traits::is_signed<T>());
 		}
 		template <typename T>
-		std::string to_string_embedded_int(T const &t, impl_place_for_traits::false_type ){
+		std::string to_string_embedded_int(T const &, impl_place_for_traits::false_type ){
 			return "no to_string";
 		}
 		// convenience for pointers.... useful?

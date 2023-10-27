@@ -1,7 +1,7 @@
 /*********************************************************************************
  * This file is part of CUTE.
  *
- * Copyright (c) 2007-2018 Peter Sommerlad, IFS
+ * Copyright (c) 2016-2018 Peter Sommerlad, IFS
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,31 +23,24 @@
  *
  *********************************************************************************/
 
-#ifndef CUTE_THROWS_H_
-#define CUTE_THROWS_H_
+#ifndef CUTE_DEPRECATED_H_
+#define CUTE_DEPRECATED_H_
 
-#include "cute_base.h"
+#if __cplusplus >= 201402L
+#define DEPRECATE(orig, repl) [[deprecated ("Use "#repl" instead.")]] inline void orig() {}
+#elif defined(__GNUG__)
+#define GCC_VERSION (__GNUC__ * 10000 + __GNUC_MINOR__ * 100 + __GNUC_PATCHLEVEL__)
+#if GCC_VERSION >= 40500 || defined(__clang__)
+#define DEPRECATE(orig, repl) __attribute__((deprecated("Use "#repl" instead."))) inline void orig() {}
+#else
+#define DEPRECATE(orig, repl) __attribute__((deprecated)) inline void orig() {}
+#endif
+#elif defined(_MSC_VER)
+#define DEPRECATE(orig, repl) __declspec(deprecated(#orig" is deprecated, use "#repl" instead.")) inline void orig() {}
+#endif
 
-// should we allow arbitrary code and remove the parentheses around the macro expansion?
-// not now, strange compilation side-effects might result.
-namespace cute {
-	namespace do_not_use_this_namespace {
-		struct assert_throws_failure_exception {
-			struct cute::test_failure original;
-			assert_throws_failure_exception(std::string const &r,char const *f, int line):
-					original(r,f, line){}
-		};
-	}
-}
+#ifdef DEPRECATE
+#define DEPRECATED(name) name()
+#endif
 
-#define ASSERT_THROWSM(anuncommonmessagetextparametername,code,exc) \
-	do { \
-		try { \
-			{ code ; } \
-			throw cute::do_not_use_this_namespace::assert_throws_failure_exception((anuncommonmessagetextparametername),__FILE__,__LINE__); \
-		} catch(exc const &){ \
-		} catch(cute::do_not_use_this_namespace::assert_throws_failure_exception const &atf){throw atf.original;} \
-	} while(0)
-#define ASSERT_THROWS(code,exc) ASSERT_THROWSM(" expecting " #code " to throw " #exc,code,exc)
-
-#endif /*CUTE_THROWS_H_*/
+#endif /*CUTE_DEPRECATED_H_*/
