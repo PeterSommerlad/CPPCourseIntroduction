@@ -1,0 +1,3 @@
+/Users/sop/Documents/talks/Firmenkurse/CPPAdvanced/sources/CPPCourseIntroduction/ws-trivia/build/CMakeFiles/algorithm_trivia.dir
+/Users/sop/Documents/talks/Firmenkurse/CPPAdvanced/sources/CPPCourseIntroduction/ws-trivia/build/CMakeFiles/edit_cache.dir
+/Users/sop/Documents/talks/Firmenkurse/CPPAdvanced/sources/CPPCourseIntroduction/ws-trivia/build/CMakeFiles/rebuild_cache.dir
