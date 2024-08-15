@@ -69,4 +69,14 @@ Create a C++ project (Hello World Executable Project) in Cevelop, compile and ru
     - what do you observe in the CUTE test viewer. Can you navigate to the failing test case? Can you compare the results if the test fails?
     - If unsure how to use it, try to access the documentation of CUTE test plug-in. Where is it?
   - Why don't you violate the One-Definition-Rule with the second `main()` function in the library?
+  - 
+
+## Alternative Compiler Explorer
+
+Here you can find a compiler explorer example setup with the CUTE unit testing framework and a testable hello world implementation.
+Note: the test case fails deliberately. 
+
+[CE testable hello world](https://godbolt.org/z/YrT4sxaTa)
+
+Be aware that any new test functions must be registered manually in the test main file.
 
