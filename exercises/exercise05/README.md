@@ -282,3 +282,6 @@ int main(int argc, char const *argv[]) {
 	return runAllTests(argc, argv) ? EXIT_SUCCESS : EXIT_FAILURE;
 }
 ```
+
+
+A compiler explorer workspace for this exercise can be found at [https://godbolt.org/z/Pn8889had](https://godbolt.org/z/Pn8889had)
