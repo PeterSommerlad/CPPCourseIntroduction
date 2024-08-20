@@ -89,3 +89,8 @@ Implement a function `printOccurrences` that takes an `std::istream`, an `std::o
 ```cpp
 void printOccurrences(std::istream &, std::ostream &, int n);
 ```
+
+
+A compiler explorer workspace for you to solve these exercises with predefined test cases is available: 
+
+[exercise](https://godbolt.org/z/vsaKc3nxb)
