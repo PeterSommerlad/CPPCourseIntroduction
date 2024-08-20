@@ -34,7 +34,7 @@
 		<link>
 			<name>src/Counter.h</name>
 			<type>1</type>
-			<locationURI>PARENT-14-ECLIPSE_HOME/Documents/talks/Firmenkurse/workshop/sources/CPPCourseIntroduction/src/Counter.h</locationURI>
+			<location>/Users/sop/Documents/talks/Firmenkurse/workshop/sources/CPPCourseIntroduction/src/Counter.h</location>
 		</link>
 		<link>
 			<name>src/CounterTest.cpp</name>

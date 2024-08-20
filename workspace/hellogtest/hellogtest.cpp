@@ -3,8 +3,8 @@
 #include <sstream>
 namespace {
 TEST(HelloTest, sayHelloSaysHello) {
-	std::ostringstream os{};
-	sayhello(os);
-	ASSERT_EQ("Hello, world!", os.str());
+    std::ostringstream out{};
+    sayhello(out);
+    ASSERT_EQ("Hello, world!", out.str());
 }
 }

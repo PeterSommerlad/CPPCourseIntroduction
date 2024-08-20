@@ -1,6 +1,7 @@
 #include "sayhello.h"
-#include "gtest/gtest.h"
-#include <sstream>
+#include <gtest/gtest.h>
+
+
 namespace {
 TEST(HelloTest, sayHelloSaysHello) {
     std::ostringstream out{};

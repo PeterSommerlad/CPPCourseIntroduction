@@ -18,9 +18,15 @@ size_t count_blanks(std::string s){
   return count(begin(s),end(s),' ');
 }
 }
+namespace ranges {
+size_t count_blanks(std::string s){
+  return std::ranges::count(s,' ');
+}
+}
 int main(){
   using namespace std::literals;
   auto s{"This is a longer example text with some blank characters   "s};
   std::cout << s << "\nhas " << loop::count_blanks(s) << " blanks\n";
   std::cout << s << "\nhas " << algo::count_blanks(s) << " blanks\n";
+  std::cout << s << "\nhas " << ranges::count_blanks(s) << " blanks\n";
 }

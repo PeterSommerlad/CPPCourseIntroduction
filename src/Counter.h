@@ -175,7 +175,7 @@ struct Counter {
   }
 
 #endif
-protected:
+  protected: // allow subclass extension
   int theCount { };
 };
 

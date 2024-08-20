@@ -33,17 +33,17 @@
 		<link>
 			<name>enumeration/Statemachine.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-14-ECLIPSE_HOME/Documents/talks/Firmenkurse/workshop/sources/CPPCourseIntroduction/src/enumeration/Statemachine.cpp</locationURI>
+			<locationURI>PARENT-2-PROJECT_LOC/src/enumeration/Statemachine.cpp</locationURI>
 		</link>
 		<link>
 			<name>enumeration/Statemachine.h</name>
 			<type>1</type>
-			<locationURI>PARENT-14-ECLIPSE_HOME/Documents/talks/Firmenkurse/workshop/sources/CPPCourseIntroduction/src/enumeration/Statemachine.h</locationURI>
+			<locationURI>PARENT-2-PROJECT_LOC/src/enumeration/Statemachine.h</locationURI>
 		</link>
 		<link>
 			<name>enumeration/enumdemo.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-14-ECLIPSE_HOME/Documents/talks/Firmenkurse/workshop/sources/CPPCourseIntroduction/src/enumeration/enumdemo.cpp</locationURI>
+			<locationURI>PARENT-2-PROJECT_LOC/src/enumeration/enumdemo.cpp</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>
