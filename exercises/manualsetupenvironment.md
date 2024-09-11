@@ -13,7 +13,7 @@ This provides a minimal setup with the Cevelop IDE and a Browser with preconfigu
 
 ## Installation on MacOS
 
-Note: as of today, the release Cevelop does not yet run on the newer M1(aarch64) Macs.
+Note: as of today, the release Cevelop does not yet run on the newer M(ARM - aarch64) Macs (see below).
 
   -  Download Cevelop at https://www.cevelop.com/download/ (or use brew)
   -  Unzip it anywhere locally on your filesystem, e.g. in your home directory.
@@ -44,7 +44,7 @@ Note: as of today, the release Cevelop does not yet run on the newer M1(aarch64)
 
 Download and install VirtualBox, if you do not have a VM supervisor like VMWare already.
 
-Download and install the Virtual Machine (CPPCourse.ova) via the link provided to you
+Download and install the Virtual Machine (CPPCourse.2.ova 3.3GB or CPPCourse24.ova 5.2GB) via the link provided to you
 
 You can either use VMware or '''Virtualbox''' to run the virtual machine. 
 
@@ -57,6 +57,8 @@ https://www.virtualbox.org/wiki/Downloads or directly via your package manager.
 After installation you need to setup the virtual machine. When you started Virtualbox click the "Import Appliance" button, select the appliance file "CPlusPlusHS1614_64.ova" and click "Next". Verify the appliance settings, especially the last entry where your image files are stored and modify if required. Click "Import".
 
 You should be ready now to start with the exercises.
+
+**ARM processor Mac**: There is alpha support for a Cevelop version that requires a java environment to be installed in addition to the C++ compiler or you can use a version of the above VM converted to be used by UTM in emulation mode downloadable as CPPCourse24.utm.zip (unzip and open with UTM). Ask your trainer for the download path.
 
 #### Login
 Login to the VM using:
