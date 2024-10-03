@@ -10,11 +10,18 @@
 void emptyStreamCountsZeroCharc(){
 	std::istringstream in{};
 	ASSERT_EQUAL(0u,charc(in));
+
+	in.clear();
+	in.str("1234");
+	ASSERT_EQUAL(std::istream_iterator<int>{in},
+			std::istream_iterator<int>{});
+
 }
 
 void oneCharStreamCountsOneCharc(){
 	std::istringstream in{"a"};
 	ASSERT_EQUAL(1u,charc(in));
+	ASSERT(in.eof());
 }
 
 void manyCharStreamCountsCharc(){

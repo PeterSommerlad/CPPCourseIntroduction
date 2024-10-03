@@ -4,7 +4,7 @@ int howOldYouAre(std::istream& in, std::ostream& out){
   out << "What year were you born?";
   int year{}; // mutable
   in >> year;
-  int age = 2022 - year; // mutable
+  int age = 2024 - year; // mutable
   out << "Did you already have your birthday (y/n)?";
   char hadBirthday{}; // mutable
   in >> hadBirthday; 

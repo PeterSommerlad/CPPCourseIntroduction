@@ -1,6 +1,10 @@
 <testsuites>
 	<testsuite name="AllTests" tests="12">
-		<testcase classname="AllTests" name="emptyStreamCountsZeroCharc"/>
+		<testcase classname="AllTests" name="emptyStreamCountsZeroCharc">
+			<failure message="../src/charcountTestAlgo.cpp:17 emptyStreamCountsZeroCharc: std::istream_iterator&lt;int&gt;{in} == std::istream_iterator&lt;int&gt;{} expected:	no operator&lt;&lt;(ostream&amp;, std::istream_iterator&lt;int, char, std::char_traits&lt;char&gt;, long&gt;)	but was:	no operator&lt;&lt;(ostream&amp;, std::istream_iterator&lt;int, char, std::char_traits&lt;char&gt;, long&gt;)	">
+emptyStreamCountsZeroCharc: std::istream_iterator&lt;int&gt;{in} == std::istream_iterator&lt;int&gt;{} expected:	no operator&lt;&lt;(ostream&amp;, std::istream_iterator&lt;int, char, std::char_traits&lt;char&gt;, long&gt;)	but was:	no operator&lt;&lt;(ostream&amp;, std::istream_iterator&lt;int, char, std::char_traits&lt;char&gt;, long&gt;)	
+			</failure>
+		</testcase>
 		<testcase classname="AllTests" name="oneCharStreamCountsOneCharc"/>
 		<testcase classname="AllTests" name="manyCharStreamCountsCharc"/>
 		<testcase classname="AllTests" name="emptyStreamCountsZeroAllCharc"/>
