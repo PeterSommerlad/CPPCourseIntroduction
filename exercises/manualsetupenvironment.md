@@ -7,8 +7,7 @@ This provides a minimal setup with the Cevelop IDE and a Browser with preconfigu
 
   -  Download Cevelop at https://www.cevelop.com/download/
   -  Unzip it anywhere locally on your filesystem, e.g. in your home directory.
-  -  Install a suitable C++ compiler using your package manager.
-    -  For C++17 GCC 8.3 or newer is a good choice
+  -  Install a suitable C++ compiler (most recent) using your package manager.
 
 
 ## Installation on MacOS
@@ -17,7 +16,7 @@ Note: as of today, the release Cevelop does not yet run on the newer M(ARM - aar
 
   -  Download Cevelop at https://www.cevelop.com/download/ (or use brew)
   -  Unzip it anywhere locally on your filesystem, e.g. in your home directory.
-  -  You might need to install XCode command line tools to obtain a C++ compiler or use homebrew to install gcc-11 to be able to compile C++ programs. Since homebrew will install g++-11 in /opt/homebrew/bin you might need to add that directory to your PATH environment variable. XCode command line tools are available via the default path /usr/bin.
+  -  You might need to install XCode command line tools to obtain a C++ compiler or use homebrew to install gcc-14 to be able to compile C++ programs. Since homebrew will install g++-14 in /opt/homebrew/bin you might need to add that directory to your PATH environment variable. XCode command line tools are available via the default path /usr/bin.
 
 
 ## Cevelop on Windows
@@ -44,9 +43,12 @@ Note: as of today, the release Cevelop does not yet run on the newer M(ARM - aar
 
 Download and install VirtualBox, if you do not have a VM supervisor like VMWare already.
 
-Download and install the Virtual Machine (CPPCourse.2.ova 3.3GB or CPPCourse24.ova 5.2GB) via the link provided to you
+Download and install the Virtual Machine ( CPPCourse24.ova 5.2GB) via the link provided to you
 
 You can either use VMware or '''Virtualbox''' to run the virtual machine. 
+
+For an ARM-based MacOS computer (M1, M2...), you can try to use the VM using UTM provided via the link, or you can try to install a beta version of Cevelop compiled for ARM on MacOS.
+Ask for the link.
 
 
 #### Virtualbox (Linux, Mac, Windows)
@@ -67,6 +69,6 @@ Login to the VM using:
 
 *Password:* cpppassword
 
-From the desktop menu, select Application->Programming->cevelop
+From the desktop (menu), select Application->Programming->cevelop
 
 
