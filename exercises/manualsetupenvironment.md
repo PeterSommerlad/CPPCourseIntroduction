@@ -18,10 +18,11 @@ You can either use VMware or '''Virtualbox''' to run the virtual machine.
 
 For an ARM-based MacOS computer (M1, M2...), it seems best to use a setup provided by the training center.
 
-If you are brave and know your way around MacOS intricacies, you can try to use the VM using UTM provided via the link, or you can try to install a beta version of Cevelop compiled for ARM on MacOS.
+If you are very patient or have a very fast ARM-based Mac, you can try the UTM emulator app and rund the VM through this. However, the experience might be unacceptably slow to be useful.
+
+If you are brave and know your way around MacOS intricacies, you can try to install a beta version of Cevelop compiled for ARM on MacOS.
 Ask for the link. Note, this version of Cevelop requires a setup with an older Java VM and thus might not work without convincing your MacOS that it is safe to run (settings and acknowledgemen). It works well on my M1 Mac, but it was also compiled there.
 
-If you are very patient or have a very fast ARM-based Mac, you can try the UTM emulator and rund the VM through this. However, the experience might be unacceptably slow to be useful.
 
 
 #### Virtualbox (Linux, Mac(Intel), Windows)
