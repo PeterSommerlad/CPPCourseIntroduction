@@ -12,16 +12,27 @@ The download link is provided to you via email.
 
 Download and install VirtualBox, if you do not have a VM supervisor like VMWare already.
 
-Download and install the Virtual Machine ( CPPCourse26.ova 10GB) via the link provided to you.
+Download and import the Virtual Machine ( CPPCourse26.ova 10GB) via the link provided to you.
 
 You can either use VMware or '''Virtualbox''' to run the virtual machine. 
 
 For an ARM-based MacOS computer (M1, M2...), it seems best to use a setup provided by the training center.
 
-If you are very patient or have a very fast ARM-based Mac, you can try the UTM emulator app and rund the VM through this. However, the experience might be unacceptably slow to be useful.
+If you are very patient or have a very fast ARM-based Mac, you can try running the VM in VirtualBox or the UTM emulator app. However, the experience might be unacceptably slow to be useful.
+
+After Installing VirtualBox you need to change the following setting:
+
+```
+VBoxManage setextradata global "VBoxInternal2/EnableX86OnArm" 1
+```
+
+and import the downloaded OVA file. Note this is still "Developer Preview" and far from production ready and very very slow.
+
+The setup with UTM is a bit more involved and similarly slow.
+ 
 
 If you are brave and know your way around MacOS intricacies, you can try to install a beta version of Cevelop compiled for ARM on MacOS.
-Ask for the link. Note, this version of Cevelop requires a setup with an older Java VM and thus might not work without convincing your MacOS that it is safe to run (settings and acknowledgemen). It works well on my M1 Mac, but it was also compiled there.
+Ask for the link. Note, this version of Cevelop requires a setup with an older Java VM and thus might not work without convincing your MacOS that it is safe to run (settings and acknowledgement). It works well on my M1 Mac, but it was also compiled there. In addition you need a C++ environment, such as the XCode command line tools.
 
 
 
