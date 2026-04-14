@@ -38,6 +38,16 @@ void manyCharStreamCountsAllCharc(){
 	std::istringstream in{input};
 	ASSERT_EQUAL(input.size(),allcharc(in));
 }
+
+void checkIfFormattingFlagsremainconsistent(){
+	std::istringstream in{"hello peter\n"};
+	in >> std::noskipws;
+	allcharc(in);
+	in.clear();
+	in.str("3spaces   ");
+	ASSERT_EQUAL(10,charc(in));
+}
+
 void emptyStreamCountsZeroWc(){
 	std::istringstream in{};
 	ASSERT_EQUAL(0u,wc(in));
@@ -87,6 +97,7 @@ bool runAllTests(int argc, char const *argv[]) {
 	s.push_back(CUTE(emptyStreamCountsZeroLc));
 	s.push_back(CUTE(onelineStreamCountsOneLc));
 	s.push_back(CUTE(manyLineStreamCountsLc));
+	s.push_back(CUTE(checkIfFormattingFlagsremainconsistent));
 	cute::xml_file_opener xmlfile(argc, argv);
 	cute::xml_listener<cute::ide_listener<>> lis(xmlfile.out);
 	auto runner = cute::makeRunner(lis, argc, argv);

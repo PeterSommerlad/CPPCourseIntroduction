@@ -1,5 +1,5 @@
 <testsuites>
-	<testsuite name="AllTests" tests="12">
+	<testsuite name="AllTests" tests="13">
 		<testcase classname="AllTests" name="emptyStreamCountsZeroCharc"/>
 		<testcase classname="AllTests" name="oneCharStreamCountsOneCharc"/>
 		<testcase classname="AllTests" name="manyCharStreamCountsCharc"/>
@@ -12,5 +12,6 @@
 		<testcase classname="AllTests" name="emptyStreamCountsZeroLc"/>
 		<testcase classname="AllTests" name="onelineStreamCountsOneLc"/>
 		<testcase classname="AllTests" name="manyLineStreamCountsLc"/>
+		<testcase classname="AllTests" name="checkIfFormattingFlagsremainconsistent"/>
 	</testsuite>
 </testsuites>

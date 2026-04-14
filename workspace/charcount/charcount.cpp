@@ -7,7 +7,7 @@
 unsigned charc(std::istream &in) {
 	unsigned count{};
 	char c{};
-	while(in >> c){
+	while(in >> c){ // formatted input
 		++count;
 	}
 	return count;
@@ -16,8 +16,7 @@ unsigned charc(std::istream &in) {
 unsigned allcharc(std::istream &in) {
 	unsigned count{};
 	char c{};
-	in >> std::noskipws;
-	while(in && in >> c){
+	while(in.get(c)){ // unformatted input
 		++count;
 	}
 	return count;
