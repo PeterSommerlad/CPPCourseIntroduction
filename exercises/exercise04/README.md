@@ -18,3 +18,8 @@ For output with the function application you can use `std::transform()`, which w
 
 Demonstrate your function beyond your unit tests by a `main()` function that displays the functions `std::sin(x)`, `std::cos(x)`, `std::tan(x)` for x from `0` to `pi` in `19` steps (10 degrees each).
 
+
+## b) attempt top solve the algorithm trivia exercise of exercise08
+
+This exercise helps you explore the space of the standard library algorithsm and can be solved on the extra self-study day.
+
